@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Simple XML Config to support mutliple domains update + multiple providers/ip checkers -->
+<!-- SecretKey can be encrypted by setting EnablePasswordEncryption=true in App.config: 
+     1. Update your own ConfigHelper.EncryptionKey and 
+     2. Use Des3.Encrypt() to encrypt your plaintext Password/SecretKey -->
+
+<XmlConfig>
+
+  <Domains>
+    <Domain>
+      <DomainName>home.yourdomain1.com</DomainName>
+      <ProviderType>AMAZON_ROUTE_53</ProviderType>
+      <HostedZoneId>Z1JFJGJ4HS2HFGAA</HostedZoneId>
+      <AccessID>DFFAUIADFU3AGUOIHJFJGH</AccessID>
+      <SecretKey>sadfizISFIiofhgSDF87SDFDKJhDfndfaldfasldfgndsalfsaidfhduu92334hdkvfjHS</SecretKey>
+      <MinimalUpdateIntervalInMinutes>5</MinimalUpdateIntervalInMinutes>
+      <LastIpAddress>74.125.226.111</LastIpAddress>
+      <LastUpdatedDateTime>2015-02-21T19:29:12.8381639Z</LastUpdatedDateTime>
+      <ChangeStatusID></ChangeStatusID>
+    </Domain>
+    <Domain>
+      <DomainName>home.yourdomain2.com</DomainName>
+      <ProviderType>AMAZON_ROUTE_53</ProviderType>
+      <HostedZoneId>Z2FJGJ4HS2HFGBB</HostedZoneId>
+      <AccessID>DFFAUIADFU3AGUOIHJFJGH</AccessID>
+      <SecretKey>sadfizISFIiofhgSDF87SDFDKJhDfndfaldfasldfgndsalfsaidfhduu92334hdkvfjHS</SecretKey>
+      <MinimalUpdateIntervalInMinutes>5</MinimalUpdateIntervalInMinutes>
+      <LastIpAddress>74.125.226.111</LastIpAddress>
+      <LastUpdatedDateTime>2015-02-21T19:29:12.8381639Z</LastUpdatedDateTime>
+      <ChangeStatusID></ChangeStatusID>
+    </Domain>
+  </Domains>
+
+  <Providers>
+    <Provider>
+      <ProviderType>AMAZON_ROUTE_53</ProviderType>
+      <ProviderUrl>https://route53.amazonaws.com</ProviderUrl>
+    </Provider>
+  </Providers>
+
+  <IpCheckers>
+    <IpChecker>
+      <IpCheckerType>JSON_IP</IpCheckerType>
+      <ClientType>WEB_HTTP</ClientType>
+      <IpCheckerUrl>http://www.jsonip.com/</IpCheckerUrl>
+    </IpChecker>
+    <IpChecker>
+      <IpCheckerType>DYN_DNS</IpCheckerType>
+      <ClientType>WEB_HTTP</ClientType>
+      <IpCheckerUrl>http://checkip.dyndns.com/</IpCheckerUrl>
+    </IpChecker>
+    <IpChecker>
+      <IpCheckerType>CUSTOM</IpCheckerType>
+      <ClientType>WEB_HTTP</ClientType>
+      <IpCheckerUrl>http://checkip.yourdomain.com/</IpCheckerUrl>
+    </IpChecker>
+  </IpCheckers>
+
+</XmlConfig>
+
