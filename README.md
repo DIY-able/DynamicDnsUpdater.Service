@@ -3,3 +3,5 @@ Automatically update your dynamic IP address, supports multiple DNS Providers an
 
 
 For the details of how to use the code, refers to http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Servic
+
+Feel free to join this open source project if you want to implement other DNS providers! 
