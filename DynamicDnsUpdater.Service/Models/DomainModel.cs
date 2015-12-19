@@ -22,10 +22,11 @@ namespace DynamicDnsUpdater.Service.Models
         public string AccessID { get; set; }
         public string SecretKey { get; set; }
         public string MinimalUpdateIntervalInMinutes { get; set; }
-        public string LastIpAddress { get; set; }
+        public string LastIpAddress { get; set; }    // CURRENT ip address
         public DateTime LastUpdatedDateTime { get; set; }
         public string ChangeStatusID { get; set; }     // Id for tracking update status 
-
+        public string HistoricalIpAddress { get; set; }  // PREVIOUS ip address
+        public Meta.Enum.UpdateReasonType LastUpdatedReason { get; set; }
     }
 
 }

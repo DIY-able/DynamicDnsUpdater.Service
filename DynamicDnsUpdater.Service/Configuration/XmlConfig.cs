@@ -44,6 +44,9 @@ namespace DynamicDnsUpdater.Service.Configuration
         // DnsProvider such as Amazon Route53 takes several minutes from PENDING to INSYNC, when ChangeStatusID is empty/null = INSYNC, otherwise it is PENDING
         public string ChangeStatusID { get; set; }
 
+        public string HistoricalIPAddress { get; set; }
+        public DynamicDnsUpdater.Service.Meta.Enum.UpdateReasonType LastUpdatedReason { get; set; }
+
     }
 
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]

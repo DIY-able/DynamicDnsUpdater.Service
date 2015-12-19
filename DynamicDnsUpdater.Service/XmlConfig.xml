@@ -18,6 +18,8 @@
       <LastIpAddress>74.125.226.111</LastIpAddress>
       <LastUpdatedDateTime>2015-02-21T19:29:12.8381639Z</LastUpdatedDateTime>
       <ChangeStatusID></ChangeStatusID>
+      <HistoricalIPAddress></HistoricalIPAddress>
+      <LastUpdatedReason>CHANGED</LastUpdatedReason>
     </Domain>
     <Domain>
       <DomainName>home.yourdomain2.com</DomainName>
@@ -29,6 +31,8 @@
       <LastIpAddress>74.125.226.111</LastIpAddress>
       <LastUpdatedDateTime>2015-02-21T19:29:12.8381639Z</LastUpdatedDateTime>
       <ChangeStatusID></ChangeStatusID>
+      <HistoricalIPAddress></HistoricalIPAddress>
+      <LastUpdatedReason>CHANGED</LastUpdatedReason>
     </Domain>
   </Domains>
 

@@ -1,4 +1,5 @@
 ﻿using DynamicDnsUpdater.Service.Encryption;
+using DynamicDnsUpdater.Service.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -61,28 +62,31 @@ namespace DynamicDnsUpdater.Service.Configuration
 
 
         /// <summary>
-        /// Update LastIpAddress +  LastUpdatedDateTime in XmlConfig using XPath  (Called by Update Dns)
+        /// Update several domain info in XmlConfig using XPath  (Called by Update Dns)
         /// </summary>
         /// <param name="domainName"></param>
         /// <param name="dateTimeinUTC"></param>
         /// <returns></returns>
-        public static bool UpdateLastUpdatedInformation(string domainName, string ipAddress, DateTime dateTimeinUTC)
+        public static bool UpdateDomainInformation(DomainModel domain)
         {
             // Use Xpath to update (debatable - not deserialize the xml?)
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(AppDomain.CurrentDomain.BaseDirectory + XmlConfigFileName);
             XmlNode root = xmlDocument.DocumentElement;
 
+
             // Find the matching domain name using Xpath and update the datetime
-            XmlNode node = root.SelectSingleNode("//Domains/Domain[DomainName=\"" + domainName + "\"]");
+            XmlNode node = root.SelectSingleNode("//Domains/Domain[DomainName=\"" + domain.DomainName + "\"]");
 
             if (node != null)
             {
-                node["LastIpAddress"].InnerText = ipAddress;
-                node["LastUpdatedDateTime"].InnerText = dateTimeinUTC.ToString("o");    // UTC timestamp in ISO 8601 format
-           
+                node["LastIpAddress"].InnerText = domain.LastIpAddress;
+                node["LastUpdatedDateTime"].InnerText = domain.LastUpdatedDateTime.ToString("o");    // UTC timestamp in ISO 8601 format
+                node["HistoricalIPAddress"].InnerText = domain.HistoricalIpAddress;
+                node["LastUpdatedReason"].InnerText = Enum.GetName(typeof(Meta.Enum.UpdateReasonType), domain.LastUpdatedReason);
+
                 // Need to use this to fix carriage return problem if InnerText is an empty string
-                XmlWriterSettings settings = new XmlWriterSettings { Indent = true };               
+                XmlWriterSettings settings = new XmlWriterSettings { Indent = true };
                 using (XmlWriter writer = XmlWriter.Create(AppDomain.CurrentDomain.BaseDirectory + XmlConfigFileName, settings))
                 {
                     xmlDocument.Save(writer);

@@ -170,7 +170,7 @@ namespace DynamicDnsUpdater.Service.Workers
                             {
                                 // Call the Provider to update the IP, then add it to the monitoring list
                                 updatedId = domain.DnsProvider.UpdateDns(domain.AccessID, domain.SecretKey, domain.ProviderUrl, domain.DomainName, domain.HostedZoneId, currentIpAddress);
-                              
+
                                 // Successful with ID return, update information in the xml
                                 if (updatedId != null)
                                 {
@@ -179,19 +179,18 @@ namespace DynamicDnsUpdater.Service.Workers
                                     else
                                         Logger.Write(String.Format("Domain={0} - UPDATED provider successfully from IP={1} to IP={2} with ID={3}", domain.DomainName, domain.LastIpAddress, currentIpAddress, updatedId), Meta.Enum.LogCategoryType.DNS_UPDATE.ToString());
 
-                                    // Get timestamp
-                                    DateTime currentUtc = DateTime.UtcNow;
-
-                                    // Update the model 
+                                    // Update the model                                     
+                                    domain.HistoricalIpAddress = domain.LastIpAddress; // save this for last history (has to be first)
                                     domain.LastIpAddress = currentIpAddress;
-                                    domain.LastUpdatedDateTime = currentUtc;
+                                    domain.LastUpdatedDateTime = DateTime.UtcNow;
                                     domain.ChangeStatusID = updatedId;   // For monitoring inteval timer to use
+                                    domain.LastUpdatedReason = (isForceUpdate ? Meta.Enum.UpdateReasonType.FORCED : Meta.Enum.UpdateReasonType.CHANGED);
 
                                     // Update Xml Config
-                                    ConfigHelper.UpdateLastUpdatedInformation(domain.DomainName, currentIpAddress, currentUtc);
+                                    ConfigHelper.UpdateDomainInformation(domain);
                                     ConfigHelper.UpdateChangeStatusInformation(domain.DomainName, updatedId);
 
-                                    Logger.Write(String.Format("Domain={0} - UPDATED XML configuration LastIpAddress={1}, LastUpdatedDateTime={2}", domain.DomainName, currentIpAddress, currentUtc), Meta.Enum.LogCategoryType.DNS_UPDATE.ToString());
+                                    Logger.Write(String.Format("Domain={0} - UPDATED XML configuration from {1} to {2}, LastUpdatedDateTime={3}, Reason={4}", domain.DomainName, domain.HistoricalIpAddress, domain.LastIpAddress, domain.LastUpdatedDateTime, Enum.GetName(typeof(Meta.Enum.UpdateReasonType), domain.LastUpdatedReason)), Meta.Enum.LogCategoryType.DNS_UPDATE.ToString());
 
                                 }
                                 else
@@ -375,7 +374,7 @@ namespace DynamicDnsUpdater.Service.Workers
                 string body = "The following domains have been updated:<br/><br/>";
                 foreach (DomainModel item in domainModelList)
                 {
-                    body += String.Format("Domain={0}, IP={1}, Local Time={2}", item.DomainName, item.LastIpAddress, item.LastUpdatedDateTime.ToLocalTime()) + "<br/>";
+                    body += String.Format("Domain={0}, IP from {1} to IP={2}, Local Time={3}, Reason={4}", item.DomainName, item.HistoricalIpAddress, item.LastIpAddress, item.LastUpdatedDateTime.ToLocalTime(), Enum.GetName(typeof(Meta.Enum.UpdateReasonType), item.LastUpdatedReason)) + "<br/>";
                 }
 
                 // Send email (only email is supported for now, can add Facebook or others in future)

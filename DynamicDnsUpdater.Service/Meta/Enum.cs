@@ -41,5 +41,11 @@ namespace DynamicDnsUpdater.Service.Meta
         /// </summary>
         public enum NotificationType { EMAIL }
 
+
+        /// <summary>
+        /// Define the update reason
+        /// </summary>
+        public enum UpdateReasonType { FORCED, CHANGED }
+
     }
 }

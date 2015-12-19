@@ -16,6 +16,16 @@
 // Written and Created By: Rini Boo 
 // Created on: 2015-03-04
 //
+// 2015-12-03 (ver 1.0.0.1): 
+// - Added HistoricalIPAddress and LastUpdatedReason in domain level for log and notification (forced/changed)
+// - Fixed not able to send email after timeout, Smtpclient is not disposed properly
+
+// 2015-12-19 (ver 1.0.0.2):
+// - Compiled with VS2015 (.NET 4.5.0)  
+// - Newtonsoft.Json.dll is missing compare to the old bin folder, remove it no longer been used
+// - NuGet Update Amazon AWS 2.3.19 to 2.3.53
+// - NuGet Update Topshelf 3.1.4 to 3.3.31
+// - NuGet Update Unity 3.5.1404 to 4.0.1
 
 using System;
 using System.Collections.Generic;
