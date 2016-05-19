@@ -45,7 +45,7 @@ namespace DynamicDnsUpdater.Service.Providers
                     config.ServiceURL = _providerUrl;
 
                     // Create an Amazon Route 53 client object
-                    _route53Client = AWSClientFactory.CreateAmazonRoute53Client(credential, config);
+                    _route53Client = new AmazonRoute53Client(credential, config);
                     return _route53Client;
                 }
             
