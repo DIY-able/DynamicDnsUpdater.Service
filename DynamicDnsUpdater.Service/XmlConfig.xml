@@ -47,12 +47,22 @@
     <IpChecker>
       <IpCheckerType>JSON_IP</IpCheckerType>
       <ClientType>WEB_HTTP</ClientType>
+      <IpCheckerUrl>http://api.ipify.org?format=json</IpCheckerUrl>
+    </IpChecker>
+    <IpChecker>
+      <IpCheckerType>JSON_IP</IpCheckerType>
+      <ClientType>WEB_HTTP</ClientType>
       <IpCheckerUrl>http://www.jsonip.com/</IpCheckerUrl>
     </IpChecker>
     <IpChecker>
       <IpCheckerType>DYN_DNS</IpCheckerType>
       <ClientType>WEB_HTTP</ClientType>
       <IpCheckerUrl>http://checkip.dyndns.com/</IpCheckerUrl>
+    </IpChecker>
+    <IpChecker>
+      <IpCheckerType>CUSTOM</IpCheckerType>
+      <ClientType>WEB_HTTP</ClientType>
+      <IpCheckerUrl>http://ident.me</IpCheckerUrl>
     </IpChecker>
     <IpChecker>
       <IpCheckerType>CUSTOM</IpCheckerType>

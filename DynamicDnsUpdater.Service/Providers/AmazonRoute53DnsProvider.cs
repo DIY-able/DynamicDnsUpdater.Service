@@ -38,8 +38,12 @@ namespace DynamicDnsUpdater.Service.Providers
                 else
                 {
                     // Define credentials
-                    Amazon.Util.ProfileManager.RegisterProfile("DnsUpdaterName", _accessID, _secretKey);
-                    AWSCredentials credential = new StoredProfileAWSCredentials("DnsUpdaterName");
+
+                    // RegisterProfile and StoredProfile are obsolete, to be removed. Comment out for reference only
+                    // Amazon.Util.ProfileManager.RegisterProfile("DnsUpdaterName", _accessID, _secretKey);
+                    // AWSCredentials credential = new StoredProfileAWSCredentials("DnsUpdaterName");
+
+                    var credential = new Amazon.Runtime.BasicAWSCredentials(_accessID, _secretKey);
 
                     AmazonRoute53Config config = new AmazonRoute53Config();
                     config.ServiceURL = _providerUrl;

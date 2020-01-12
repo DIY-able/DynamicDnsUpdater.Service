@@ -6,13 +6,11 @@ using DynamicDnsUpdater.Service.Models;
 using DynamicDnsUpdater.Service.Notification;
 using DynamicDnsUpdater.Service.Providers;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
-using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
+using Unity;
 
 namespace DynamicDnsUpdater.Service.Workers
 {

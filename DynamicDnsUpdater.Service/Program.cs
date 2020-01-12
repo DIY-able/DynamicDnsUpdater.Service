@@ -5,13 +5,8 @@
 //
 // Architecture and Installation: See CodeProject and GitHub
 //
-// Pre-req: Visual Studio 2013 with .NET Framework 4.5 (full, not client profile)
-// Compile: Enable NuGet to restore package
-//
 // Article: http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Service
 // Source : https://github.com/riniboo/DynamicDnsUpdaterService
-//
-// License: The GNU General Public License v3.0 
 //
 // Written and Created By: Rini Boo 
 // Created on: 2015-03-04
@@ -26,6 +21,25 @@
 // - NuGet Update Amazon AWS 2.3.19 to 2.3.53
 // - NuGet Update Topshelf 3.1.4 to 3.3.31
 // - NuGet Update Unity 3.5.1404 to 4.0.1
+
+// 2016-05-18 (ver 1.0.0.3):
+// dougkwilson on GitHub updated .NET v4.6.1, Topshelf v4.0.1 and AWSSDK v3
+
+// 2016-11-07 (ver 1.0.0.4):
+// - Compiled with VS2015 (.NET 4.6.1)
+// - NuGet Update on Topshelf to 4.0.3
+// - Uninstall Amazon AWS 2.3.53 and Installed AWSSDK.Route53 (3.3.1.1)
+// - Newtonsoft.Json.dll is needed from JavaScriptSerializer (Json.NET)
+// - Replace AWSClientFactory.CreateAmazonRoute53Client (AWS obsolete API) with new AmazonRoute53Client
+
+// 2020-01-12 (ver 1.0.0.5):
+// - Compiled with VS2017 (.NET 4.6.2), \v4.6.2\System.Web.Extensions.dll has JavaScriptSerializer
+// - Updated AWSSDK.Core v3.3.104.15
+// - Updated AWSSDK.Route53 v3.3.102.68
+// - Updated Topshelf V4.2.1
+// - Updated Unity v5.11.3
+// - Updated CommonServiceLocator v2.0.5
+// - It automatically added System.Runtime.CompilerServices.Unsafe.4.7.0
 
 using System;
 using System.Collections.Generic;
@@ -59,7 +73,7 @@ namespace DynamicDnsUpdater.Service
                 x.RunAsLocalSystem();
 
                 x.SetDescription("Update current IP address supports multiple DNS providers");
-                x.SetDisplayName("Dynamic DNS Updater Service");
+                x.SetDisplayName("DynamicDnsUpdater.Service");
                 x.SetServiceName("DynamicDnsUpdater");
             });               
             
