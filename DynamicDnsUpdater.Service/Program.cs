@@ -41,6 +41,11 @@
 // - Updated CommonServiceLocator v2.0.5
 // - It automatically added System.Runtime.CompilerServices.Unsafe.4.7.0
 
+// 2020-01-22 (ver 1.0.0.6)
+// - Compiled with VS2019 (.NET 4.7.2)
+// - Updated AWSSDK.Core 3.3.104.19
+// - Updated AWSSDK.Route53 3.3.102.72
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
