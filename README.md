@@ -1,10 +1,10 @@
 # DynamicDnsUpdater.Service
 Automatically update your dynamic IP address, supports multiple DNS Providers and IpCheckers. Project was started to update Amazon AWS Route 53. It runs as Windows Service.  
 
-Latest update: Visual Studio 2019 + .NET 4.7.2 are required. 
+Latest update: Visual Studio 2022 + .NET 4.8.1 are required. 
 
 For the details of how to use the code, refers to http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Servic
-But CodeProject won't be have the latest code, it's just more for reference.  Feel free to join this open source project if you want to implement other DNS providers! 
+It was published under "Rini Boo" nickname. CodeProject won't be have the latest code, it's just more for reference.  Feel free to join this open source project if you want to implement other DNS providers! 
 
 2015-12-03 (ver 1.0.0.1): 
 - Added: HistoricalIPAddress and LastUpdatedReason in domain level for log and notification (forced/changed)
@@ -40,3 +40,10 @@ But CodeProject won't be have the latest code, it's just more for reference.  Fe
 - Compiled with VS2019 (.NET 4.7.2)
 - Updated AWSSDK.Core 3.3.104.19
 - Updated AWSSDK.Route53 3.3.102.72
+
+2024-02-08 (ver 1.0.0.7)
+- Compiled with VS2022 (.NET 4.8.1)
+- Updated AWSSDK.Core 3.7.302.7
+- Updated AWSSDK.Route53 3.7.302.14
+- Updated Topshelf 4.3.0
+- Updated Unity 5.11.10
