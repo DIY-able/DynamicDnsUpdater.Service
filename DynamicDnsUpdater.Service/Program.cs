@@ -6,9 +6,11 @@
 // Architecture and Installation: See CodeProject and GitHub
 //
 // Article: http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Service
+// It was published under "Rini Boo" nickname
+//
 // Source : https://github.com/riniboo/DynamicDnsUpdaterService
 //
-// Written and Created By: Rini Boo 
+// Written and Created By: Rini Boo (DIYable)
 // Created on: 2015-03-04
 //
 // 2015-12-03 (ver 1.0.0.1): 
@@ -45,6 +47,14 @@
 // - Compiled with VS2019 (.NET 4.7.2)
 // - Updated AWSSDK.Core 3.3.104.19
 // - Updated AWSSDK.Route53 3.3.102.72
+
+// 2024-02-08 (ver 1.0.0.7)
+// - Compiled with VS2022 (.NET 4.8.1)
+// - Updated AWSSDK.Core 3.7.302.7
+// - Updated AWSSDK.Route53 3.7.302.14
+// - Updated Topshelf 4.3.0
+// - Updated Unity 5.11.10
+
 
 using System;
 using System.Collections.Generic;
