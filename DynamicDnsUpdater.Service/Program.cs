@@ -8,7 +8,7 @@
 // Article: http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Service
 // It was published under "Rini Boo" nickname
 //
-// Source : https://github.com/riniboo/DynamicDnsUpdaterService
+// Source : https://github.com/diy-able/DynamicDnsUpdaterService
 //
 // Written and Created By: Rini Boo (DIYable)
 // Created on: 2015-03-04
