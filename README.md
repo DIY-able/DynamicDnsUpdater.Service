@@ -1,8 +1,12 @@
 # DynamicDnsUpdater.Service
-The project was published under "RiniBoo" nickname in 2015. DynamicDnsUpdater.Service runs as Windows Service, automatically updates your dynamic IP address, supports multiple DNS Providers and IpCheckers. Project was started to update my home IP address using Amazon AWS Route 53.
+The project was published under "RiniBoo" nickname in 2015. DynamicDnsUpdater.Service runs as Windows Service, automatically updates your dynamic IP address, supports multiple DNS Providers and IpCheckers. Project was started to update my home IP address using Amazon AWS Route 53. For the details on how to use the code, refers to:
 
-For the details of how to use the code, refers to http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Servic
+- http://www.codeproject.com/Articles/882487/Amazon-AWS-Route-Dynamic-IP-Updater-Windows-Servic
+
 CodeProject won't be have the latest code, it's just more for reference.  Feel free to join this open source project if you want to implement other DNS providers! 
+
+Ideally, this project should be upgraded to .NET Core with AWS .NET Core SDK library and rewrite XML config to JSON config. However, after 10 years of the initial code was published, I doubt anyone still needs to publish the home dynamic IP with a VM, everyone should have moved everything to the cloud. If you are still running this windows service in your basement, it's such as good match for this project to stay with traditional .NET Framework. 
+
 
 Latest update: Visual Studio 2022 + .NET 4.8.1 are required. 
 
